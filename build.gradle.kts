@@ -25,9 +25,11 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+	//Log
 	implementation("org.springframework.cloud:spring-cloud-starter-sleuth:3.1.3")
+
+	//Kafka
 	implementation("org.springframework.kafka:spring-kafka")
-	implementation("ch.qos.logback:logback-core")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
 
 
