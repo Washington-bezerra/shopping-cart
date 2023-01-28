@@ -25,7 +25,7 @@ data class Item(
 
     @Enumerated(EnumType.STRING)
     @Column
-    val status: ItemStatus = ItemStatus.PROCESSING,
+    var status: ItemStatus = ItemStatus.PROCESSING,
 
     ){
     @CreationTimestamp

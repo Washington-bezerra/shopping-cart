@@ -1,6 +1,6 @@
 package com.shoppingcart.application.controllers
 import com.shoppingcart.application.commands.CreateClientCommand
-import com.shoppingcart.application.usecases.CreateClientUseCase
+import com.shoppingcart.application.usecases.client.CreateClientUseCase
 import com.shoppingcart.domain.Client
 import com.shoppingcart.infrastructure.entities.Client as ClientEntity
 import org.springframework.web.bind.annotation.PostMapping

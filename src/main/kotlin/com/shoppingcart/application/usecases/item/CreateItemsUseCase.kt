@@ -1,4 +1,4 @@
-package com.shoppingcart.application.usecases
+package com.shoppingcart.application.usecases.item
 
 import com.shoppingcart.infrastructure.entities.Item
 import com.shoppingcart.infrastructure.repositories.ItemRepository

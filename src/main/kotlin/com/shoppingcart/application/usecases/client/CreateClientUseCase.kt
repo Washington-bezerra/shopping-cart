@@ -1,4 +1,4 @@
-package com.shoppingcart.application.usecases
+package com.shoppingcart.application.usecases.client
 
 import com.shoppingcart.application.commands.CreateClientCommand
 import com.shoppingcart.infrastructure.entities.Client
