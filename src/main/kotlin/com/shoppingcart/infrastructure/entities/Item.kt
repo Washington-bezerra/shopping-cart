@@ -1,8 +1,13 @@
 package com.shoppingcart.infrastructure.entities
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer
 import com.shoppingcart.domain.ItemStatus
 import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp
+import org.hibernate.annotations.UpdateTimestamp
 import java.time.LocalDateTime
 
 @Entity
@@ -25,9 +30,13 @@ data class Item(
     ){
     @CreationTimestamp
     @Column
+    @JsonSerialize(using = LocalDateTimeSerializer::class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer::class)
     lateinit var createdAt: LocalDateTime
 
-    @CreationTimestamp
+    @UpdateTimestamp
     @Column
+    @JsonSerialize(using = LocalDateTimeSerializer::class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer::class)
     lateinit var updatedAt: LocalDateTime
 }

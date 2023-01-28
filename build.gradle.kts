@@ -23,6 +23,13 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+	implementation("org.springframework.cloud:spring-cloud-starter-sleuth:3.1.3")
+	implementation("org.springframework.kafka:spring-kafka")
+	implementation("ch.qos.logback:logback-core")
+	testImplementation("org.springframework.kafka:spring-kafka-test")
+
 
 	runtimeOnly("org.postgresql:postgresql")
 	implementation("org.flywaydb:flyway-core")
