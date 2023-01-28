@@ -34,6 +34,7 @@ class ItemController(
         @PathVariable itemId: Int,
         @Param("status") status: ItemStatus
     ): ResponseEntity<*> {
+        log.info("Received put request for item {}", itemId)
         return putItemUseCase(itemId, status)
     }
 }

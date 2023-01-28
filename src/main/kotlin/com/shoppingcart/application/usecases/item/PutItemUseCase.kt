@@ -16,10 +16,11 @@ class PutItemUseCase{
     lateinit var itemRepository: ItemRepository
 
     operator fun invoke(itemId: Int, status: ItemStatus): ResponseEntity<*> {
+        log.info("Trying update item {}", itemId)
         val item = itemRepository.updateStatusById(status.toString(), itemId)
+        log.info("No error in update for item {}", itemId)
 
         return ResponseEntity(item, HttpStatus.OK)
-
     }
 
 }
