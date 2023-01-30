@@ -1,0 +1,11 @@
+{
+    "namespace": "com.shoppingcart.event.avro.item",
+     "type": "record",
+     "name": "Item",
+     "fields": [
+         {"name": "itemId", "type": "int"},
+         {"name": "name",  "type": "string"},
+         {"name": "value", "type": "double"},
+         {"name": "status", "type": "string"}
+     ]
+}

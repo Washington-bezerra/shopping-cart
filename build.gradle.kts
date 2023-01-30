@@ -7,6 +7,7 @@ plugins {
 	kotlin("plugin.spring") version "1.7.22"
 	kotlin("plugin.jpa") version "1.7.22"
 	id("org.flywaydb.flyway") version "9.8.1"
+	id("com.github.davidmc24.gradle.plugin.avro") version "1.3.0"
 }
 
 group = "com"
@@ -31,6 +32,8 @@ dependencies {
 	//Kafka
 	implementation("org.springframework.kafka:spring-kafka")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
+	implementation("org.apache.avro:avro:1.11.0")
+//	implementation("io.confluent:kafka-avro-serializer:7.3.1")
 
 
 	runtimeOnly("org.postgresql:postgresql")

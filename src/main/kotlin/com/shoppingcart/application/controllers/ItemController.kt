@@ -5,11 +5,8 @@ import com.shoppingcart.application.usecases.item.CreateItemsUseCase
 import com.shoppingcart.application.usecases.item.PutItemUseCase
 import com.shoppingcart.domain.ItemStatus
 import com.shoppingcart.infrastructure.entities.Item
-import com.shoppingcart.infrastructure.repositories.ItemRepository
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.repository.query.Param
-import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -20,8 +17,6 @@ class ItemController(
     private val itemsMapper: ItemsMapper
 ) {
     private val log = LoggerFactory.getLogger(javaClass)
-    @Autowired
-    lateinit var itemRepository: ItemRepository
 
     @PostMapping("/item")
     fun createItems(@RequestBody itemsRequest: CreateItemsRequest): MutableList<Item> {
