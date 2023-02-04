@@ -2,10 +2,10 @@ package com.shoppingcart.application.controllers
 import com.shoppingcart.application.commands.CreateClientCommand
 import com.shoppingcart.application.usecases.client.CreateClientUseCase
 import com.shoppingcart.domain.Client
-import com.shoppingcart.infrastructure.entities.Client as ClientEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
+import com.shoppingcart.infrastructure.entities.Client as ClientEntity
 
 @RestController
 class ClientController(
@@ -15,7 +15,7 @@ class ClientController(
     @PostMapping("/client")
     fun createClient(@RequestBody client: Client) : ClientEntity
     {
-        val command: CreateClientCommand = CreateClientCommand(
+        val command = CreateClientCommand(
             name = client.name,
             documentNumber = client.documentNumber,
             email = client.email,

@@ -13,13 +13,13 @@ class CreateClientUseCase{
     lateinit var clientRepository: ClientRepository
 
     operator fun invoke(command: CreateClientCommand): Client{
-        val clientEntity: Client = Client(
+        val clientEntity = Client(
             name = command.name,
             documentNumber = command.documentNumber,
             email = command.email,
             address = command.address
         )
 
-        return  clientRepository.save(clientEntity)
+        return clientRepository.save(clientEntity)
     }
 }
