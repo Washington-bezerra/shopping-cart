@@ -21,7 +21,9 @@ class CreateShoppingCartUseCase(
 
     @Transactional
     operator fun invoke(shoppingCart: ShoppingCart): ShoppingCartResponse {
-        val client = clientRepository.findById(shoppingCart.clientId)
+        val client = clientRepository.findById(shoppingCart.clientId).orElseThrow{
+            NoSuchElementException("Client not found")
+        }
         val orderId = UUID.randomUUID()
         val itemsEntity = mutableListOf<ItemEntity>()
 
@@ -32,15 +34,13 @@ class CreateShoppingCartUseCase(
             itemsEntity.add(item)
             val shoppingCartEntity = ShoppingCartEntity(
                 orderId = orderId,
-                client = client.get(),
+                client = client,
                 item = item,
                 quantityItem = it.quantity
             )
             shoppingCartRepository.save(shoppingCartEntity)
         }
-        return getShoppingCartResponse(client.get(), orderId, itemsEntity, shoppingCart.items)
-
-
+        return getShoppingCartResponse(client, orderId, itemsEntity, shoppingCart.items)
     }
 
     private fun getShoppingCartResponse(

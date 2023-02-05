@@ -17,7 +17,17 @@ class ShoppingCartController(
     @PostMapping("/shoppingCart")
     fun createShoppingCart(@RequestBody shoppingCart: ShoppingCart): ResponseEntity<ShoppingCartResponse> {
         log.info("Receiving shoppingCart request")
-        return ResponseEntity(createShoppingCartUseCase(shoppingCart), HttpStatus.CREATED)
+
+        return try {
+            ResponseEntity(createShoppingCartUseCase(shoppingCart), HttpStatus.CREATED)
+        }catch (e: Exception) {
+            if (e.message == "Client not found" || e.message == "Item not found") {
+                ResponseEntity(HttpStatus.NOT_FOUND)
+            }else{
+                ResponseEntity(HttpStatus.BAD_REQUEST)
+            }
+
+        }
     }
 
 }
