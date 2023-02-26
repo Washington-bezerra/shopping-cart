@@ -2,6 +2,7 @@ package com.shoppingcart.application.usecases.shoppintCart
 
 import com.shoppingcart.boundaries.model.response.ItemResponse
 import com.shoppingcart.boundaries.model.response.ShoppingCartResponse
+import com.shoppingcart.boundaries.model.response.ShoppingCartResponseBuilder
 import com.shoppingcart.domain.ShoppingCart
 import com.shoppingcart.domain.request.ItemRequest
 import com.shoppingcart.infrastructure.entities.Client
@@ -20,6 +21,7 @@ class CreateShoppingCartUseCase(
     val itemRepository: ItemRepository,
     val shoppingCartRepository: ShoppingCartRepository
 ) {
+    val shoppingCartResponseBuilder = ShoppingCartResponseBuilder()
 
     @Transactional
     operator fun invoke(shoppingCart: ShoppingCart): ShoppingCartResponse {
@@ -52,16 +54,18 @@ class CreateShoppingCartUseCase(
         itemRequest: List<ItemRequest>
     ): ShoppingCartResponse {
 
-        val items = itemsEntity.map {
-            item -> ItemResponse(
+        val items = itemsEntity.map { item ->
+            val quantity = itemRequest.first{it.id == item.id}.quantity
+            ItemResponse(
                 id = item.id!!,
                 name = item.name,
                 value = item.value,
-                quantity = itemRequest.first{it.id == item.id}.quantity
+                quantity = quantity,
+                amount = (item.value * quantity)
             )
         }
 
-        return ShoppingCartResponse(
+        return shoppingCartResponseBuilder(
             orderId = orderId,
             client = client,
             items = items

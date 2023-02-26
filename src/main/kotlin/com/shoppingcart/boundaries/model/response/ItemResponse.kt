@@ -4,5 +4,6 @@ data class ItemResponse(
     val id: Int,
     val name: String,
     val value: Double,
-    val quantity: Int
+    val quantity: Int,
+    val amount: Double
 )

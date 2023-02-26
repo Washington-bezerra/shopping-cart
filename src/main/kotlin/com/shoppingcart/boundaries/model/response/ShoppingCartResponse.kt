@@ -6,5 +6,6 @@ import java.util.*
 data class ShoppingCartResponse(
     val orderId: UUID,
     val client: Client,
-    val items: List<ItemResponse>
+    val items: List<ItemResponse>,
+    val amount: Double = 0.0
 )
