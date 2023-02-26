@@ -1,4 +1,4 @@
-package com.shoppingcart.application.controllers
+package com.shoppingcart.boundaries.controllers
 import com.shoppingcart.application.commands.CreateClientCommand
 import com.shoppingcart.application.usecases.client.CreateClientUseCase
 import com.shoppingcart.domain.Client

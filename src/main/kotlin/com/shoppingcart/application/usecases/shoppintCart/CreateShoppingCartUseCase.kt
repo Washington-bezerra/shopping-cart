@@ -1,5 +1,7 @@
 package com.shoppingcart.application.usecases.shoppintCart
 
+import com.shoppingcart.boundaries.model.response.ItemResponse
+import com.shoppingcart.boundaries.model.response.ShoppingCartResponse
 import com.shoppingcart.domain.ShoppingCart
 import com.shoppingcart.domain.request.ItemRequest
 import com.shoppingcart.infrastructure.entities.Client
@@ -48,7 +50,7 @@ class CreateShoppingCartUseCase(
         orderId: UUID,
         itemsEntity: List<ItemEntity>,
         itemRequest: List<ItemRequest>
-    ): ShoppingCartResponse{
+    ): ShoppingCartResponse {
 
         val items = itemsEntity.map {
             item -> ItemResponse(
@@ -66,16 +68,3 @@ class CreateShoppingCartUseCase(
         )
     }
 }
-
-data class ShoppingCartResponse(
-    val orderId: UUID,
-    val client: Client,
-    val items: List<ItemResponse>
-)
-
-data class ItemResponse(
-    val id: Int,
-    val name: String,
-    val value: Double,
-    val quantity: Int
-)

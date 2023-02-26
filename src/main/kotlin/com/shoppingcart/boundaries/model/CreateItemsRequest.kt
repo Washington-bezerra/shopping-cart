@@ -1,4 +1,4 @@
-package com.shoppingcart.application.model.request
+package com.shoppingcart.boundaries.model
 
 import com.shoppingcart.domain.Item
 data class CreateItemsRequest(

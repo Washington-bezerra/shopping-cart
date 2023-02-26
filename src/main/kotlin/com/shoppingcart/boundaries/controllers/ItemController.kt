@@ -1,6 +1,6 @@
-package com.shoppingcart.application.controllers
+package com.shoppingcart.boundaries.controllers
 import com.shoppingcart.application.mappers.ItemsMapper
-import com.shoppingcart.application.model.request.CreateItemsRequest
+import com.shoppingcart.boundaries.model.CreateItemsRequest
 import com.shoppingcart.application.usecases.item.CreateItemsUseCase
 import com.shoppingcart.application.usecases.item.PutItemUseCase
 import com.shoppingcart.domain.ItemStatus

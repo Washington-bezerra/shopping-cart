@@ -1,6 +1,6 @@
-package com.shoppingcart.application.controllers
+package com.shoppingcart.boundaries.controllers
 import com.shoppingcart.application.usecases.shoppintCart.CreateShoppingCartUseCase
-import com.shoppingcart.application.usecases.shoppintCart.ShoppingCartResponse
+import com.shoppingcart.boundaries.model.response.ShoppingCartResponse
 import com.shoppingcart.domain.ShoppingCart
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
