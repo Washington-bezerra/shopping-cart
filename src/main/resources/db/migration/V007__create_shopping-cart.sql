@@ -1,4 +1,4 @@
-CREATE TABLE shopping_cart (
+CREATE TABLE IF NOT EXISTS shopping_cart (
     id INT PRIMARY KEY,
     order_id uuid NOT NULL,
     client_id INT REFERENCES client(id) NOT NULL,
